@@ -12,7 +12,6 @@ const input1 = "input.txt"
 
 func main() {
 	// Opening the the txt file
-
 	// Creating a scanner to read the file line by line
 	file := OpenFile(input1)
 	defer file.Close()
