@@ -22,16 +22,18 @@ func main() {
 	}
 	var sum, sumMins int
 	for id, line := range strings.Split(text, "\n") {
+
 		// Deleting the "Game _: " prefix from every line
 		prefix := "Game " + strconv.Itoa(id+1) + ": "
 		line = strings.TrimSpace(strings.TrimPrefix(line, prefix))
+
 		// Flag to check if no color exceeds the corresponding value
 		noColorExceeds := true
-		// Going through each rounds of every game
 
 		// Setting minimal possible values to play the game
 		var red, green, blue int
 
+		// Going through each round of every game
 		for _, round := range strings.Split(line, ";") {
 
 			// Going through each value-color pair in rounds
@@ -39,10 +41,13 @@ func main() {
 				instance = strings.TrimSpace(instance)
 				instanceParsed := strings.Fields(instance)
 				value, _ := strconv.Atoi(instanceParsed[0])
+
 				// Checking if the value-color is less than the one we set for the color
 				if values[instanceParsed[1]] < value {
 					noColorExceeds = false
 				}
+
+				// Assigning the colors minimal count of balls to game
 				if instanceParsed[1] == "red" {
 					red = max(red, value)
 				} else if instanceParsed[1] == "green" {
