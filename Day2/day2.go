@@ -8,7 +8,7 @@ import (
 )
 
 func main() {
-	file, err := os.ReadFile("input1.txt")
+	file, err := os.ReadFile("input.txt")
 	if err != nil {
 		fmt.Println("Error reading file:", err)
 		return
@@ -27,7 +27,7 @@ func main() {
 		prefix := "Game " + strconv.Itoa(id+1) + ": "
 		line = strings.TrimSpace(strings.TrimPrefix(line, prefix))
 
-		// Flag to check if no color exceeds the corresponding value
+		// Flag to check if no value exceeds the corresponding value in the map
 		noColorExceeds := true
 
 		// Setting minimal possible values to play the game
